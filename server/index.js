@@ -1,11 +1,14 @@
 // Requring express 
 const express = require("express");
 const errorHandler = require("./middlewares/errorMiddleware");
+const connectDB = require("./config/connect");
 const app = express();
 // Requring Dotenv
 require('dotenv').config();
 // Requring colors for making terminal beautiful
 require('colors')
+// Connection  to the DB
+connectDB()
 // Converting data into Json format
 app.use(express.json())
 // encoding json data
