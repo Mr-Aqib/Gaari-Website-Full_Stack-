@@ -1,15 +1,26 @@
-const registerUser = (req, res) =>
-{
-    const { name, email, age } = req.body
-    if (!name || !email || !age)
+const userModel = require('../models/userModels')
+const errorAsynchandler = require('express-async-handler')
+
+const registerUser = errorAsynchandler(async(req, res)=>
     {
-        throw new Error ("Enter fields")
-        
+    const { myName, myEmail, myPassword, myGender, myPhone, myImage } = req.body
+    if (!myName || !myEmail || !myPassword || !myGender || !myPhone)
+    {
+        throw new Error('Enter all Fields')
     }
-    else {
-        
+    try {
+        const createdUser = await userModel.create ({
+        name: myName,
+        email: myEmail,
+        password: myPassword,
+        gender: myGender,
+        phone: myPhone,
+        image: myImage
+        })
+        res.send(createdUser)
+    } catch (error) {
+        throw new Error(error)
     }
-    res.json({ name,email, age })
-                
-}
+    
+})
 module.exports = registerUser
