@@ -31,4 +31,28 @@ const registerUser = errorAsynchandler(async(req, res)=>
     }
     
 })
-module.exports = registerUser
+// Login User
+const loginUser = errorAsynchandler(async (req, res) =>
+{
+    const { myEmail, myPassword } = req.body
+    if (!myEmail || !myPassword)
+    {
+        throw new Error('Please Enter fields')
+    }
+    const findUser = await userModel.findOne({ email: myEmail })
+    if (!findUser) {
+        throw new Error('User not found')
+    }
+    if (findUser.email && (await encrypt.compare(myPassword, findUser.password)))
+   {
+        res.send(findUser)
+    }
+    else
+    {
+        throw new Error('Incorrect fields')
+        }
+})
+module.exports = {
+    registerUser,
+    loginUser
+ }
