@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { IoArrowForwardOutline } from "react-icons/io5";
+import Login from "./Login";
 
 const Front = () => {
   return (
@@ -43,7 +44,7 @@ const Front = () => {
             xl={6}
             className="login-section rounded-3 d-flex justify-content-center align-items-center p-5"
           >
-       
+       <Login/>
           </Col>
         </Row>
       </Container>

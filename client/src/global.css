@@ -1,8 +1,8 @@
 :root {
   --parrot: #d1ff97;
   --lightgray: #f8f8f8;
-  --text-sm: 0.7rem;
-  --text-md: 1rem;
+  --text-sm: 0.8rem;
+  --text-md: 0.9rem;
 }
 
 body {
@@ -13,7 +13,7 @@ body {
   font-size: var(--text-sm);
 }
 .text-md {
-  font-size: var(--text-sm);
+  font-size: var(--text-md);
 }
 
 .logi-btn {
@@ -44,5 +44,9 @@ body {
 .khali {
   background: linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3)),
     url("https://w0.peakpx.com/wallpaper/616/190/HD-wallpaper-eleanor-cars-classic-ford-mustang-mustangs-old.jpg");
-  background-position: -100% -43%;
+  background-position: -110% -43%;
+}
+.none-deco {
+  text-decoration: none !important;
+  font-size: 80%;
 }
