@@ -32,6 +32,7 @@ const Login = () => {
               
               <button className='btn btn-dark rounded-5  w-100 my-3'>Log in </button>
               <div className='kahli p-5 rounded-5 khali'></div>
+              <p className='text-end text-secondary mt-3'>New to the app <a className="a none-deco decoration-0">Signup?</a></p>
           </form>
       </>
   )
