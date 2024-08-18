@@ -1,6 +1,9 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import axios from 'axios'
 const Login = () => {
+    const [email,setEmail]=useState('')
+    const [password, setPassword] = useState('')
+   
   return (
       <>
           <form  className='w-75 bg-white  text-dark p-4 rounded-4'>
@@ -9,12 +12,12 @@ const Login = () => {
               <div className="form-group text-start">
                 
                 
-                  <label className='text-md text-start my-1' htmlFor="">UserName</label>
-                  <input type="text" placeholder='Enter Valid Email' className='form-control text-sm' />
+                  <label className='text-md text-start my-1' htmlFor="">Email</label>
+                  <input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" placeholder='Enter Valid Email' className='form-control text-sm' />
                   </div >
                  <div className="form-group text-start">
                   <label className='text-md text-start my-1' htmlFor="">Password</label>
-                      <input type="password" placeholder='Enter Valid Password' className='form-control text-sm' />
+                      <input value={password} onChange={(e)=>setPassword(e.target.value)} type="password" placeholder='Enter Valid Password' className='form-control text-sm' />
                   
               </div>
 
@@ -30,7 +33,7 @@ const Login = () => {
                   </div>
               </div> 
               
-              <button className='btn btn-dark rounded-5  w-100 my-3'>Log in </button>
+              <button  className='btn btn-dark rounded-5   w-100 my-3'>Log in </button>
               <div className='kahli p-5 rounded-5 khali'></div>
               <p className='text-end text-secondary mt-3'>New to the app <a className="a none-deco decoration-0">Signup?</a></p>
           </form>

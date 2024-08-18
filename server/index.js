@@ -5,6 +5,8 @@ const connectDB = require("./config/connect");
 const app = express();
 // Requring Dotenv
 require('dotenv').config();
+const cors = require('cors')
+app.use(cors())
 // Requring colors for making terminal beautiful
 require('colors')
 // Connection  to the DB

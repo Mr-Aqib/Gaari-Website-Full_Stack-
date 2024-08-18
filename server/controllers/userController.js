@@ -41,7 +41,7 @@ const loginUser = errorAsynchandler(async (req, res) =>
     }
     const findUser = await userModel.findOne({ email: myEmail })
     if (!findUser) {
-        throw new Error('User not found')
+        throw new Error('Invalid Email')
     }
     if (findUser.email && (await encrypt.compare(myPassword, findUser.password)))
    {
@@ -49,7 +49,7 @@ const loginUser = errorAsynchandler(async (req, res) =>
     }
     else
     {
-        throw new Error('Incorrect fields')
+        throw new Error('Incorrect Password')
         }
 })
 module.exports = {
