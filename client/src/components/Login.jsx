@@ -1,9 +1,20 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {useDispatch} from 'react-redux'
+import { sigIn } from '../features/auth/authSlice'
 const Login = () => {
     const [email,setEmail]=useState('')
     const [password, setPassword] = useState('')
-   
+    const dispatch=useDispatch()
+    const handleLogin = (e) =>
+    {
+        e.preventDefault()
+        const frontendData = {
+            myEmail: email,
+            myPassword: password
+        }
+        dispatch(sigIn(frontendData))
+    }
   return (
       <>
           <form  className='w-75 bg-white  text-dark p-4 rounded-4'>
@@ -33,7 +44,7 @@ const Login = () => {
                   </div>
               </div> 
               
-              <button  className='btn btn-dark rounded-5   w-100 my-3'>Log in </button>
+              <button onClick={handleLogin}  className='btn btn-dark rounded-5   w-100 my-3'>Log in </button>
               <div className='kahli p-5 rounded-5 khali'></div>
               <p className='text-end text-secondary mt-3'>New to the app <a className="a none-deco decoration-0">Signup?</a></p>
           </form>
