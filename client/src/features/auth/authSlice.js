@@ -17,7 +17,8 @@ export const sigIn = createAsyncThunk('sign-in', async (frontendData, thunkAPI) 
         return await loginUser(frontendData)
 
     } catch (error) {
-        throw new Error(error)
+       
+        return thunkAPI.rejectWithValue(error.response.data.error)
     }
 })
 // Define the async action creator 

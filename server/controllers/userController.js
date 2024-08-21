@@ -41,14 +41,17 @@ const loginUser = errorAsynchandler(async (req, res) =>
     }
     const findUser = await userModel.findOne({ email: myEmail })
     if (!findUser) {
+        res.status(404)
         throw new Error('Invalid Email')
     }
     if (findUser.email && (await encrypt.compare(myPassword, findUser.password)))
-   {
+    {
+           
         res.send(findUser)
     }
     else
     {
+         res.status(401)
         throw new Error('Incorrect Password')
         }
 })
