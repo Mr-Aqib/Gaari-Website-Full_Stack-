@@ -2,11 +2,11 @@ import React from 'react'
 import Login from './pages/Login'
 import "bootstrap/dist/css/bootstrap.min.css";
 import './global.css'
-import { Toast } from 'react-bootstrap';
+import { Toaster } from 'react-hot-toast';
 const App = () => {
   return (
     <>
-      <Toast/>
+      <Toaster/>
       <Login/>
     </>
   )

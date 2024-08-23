@@ -14,6 +14,7 @@ const registerUser = errorAsynchandler(async(req, res)=>
         const exsistedUser = await userModel.findOne({ email: myEmail })
         if (exsistedUser) {
             throw new Error('User already regsisted')
+            
         }
         //Hshing Passwprd
         const hashPassword = await encrypt.hash(myPassword,10)
